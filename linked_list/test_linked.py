@@ -40,17 +40,18 @@ def test_search():
     linkedlist.insert(one)
     linkedlist.insert(two)
     linkedlist.insert(three)
-    assert linkedlist.search(linkedlist, 'Rasmus') == three
+    assert linkedlist.search(linkedlist, three) == three
 
 
 def test_searchNone():
     linkedlist = linkedList()
     one = Node('Jacob')
     two = Node('Pallymay')
+    three = Node('Rasmus')
     linkedlist.insert(one)
     linkedlist.insert(two)
     with pytest.raises(ValueError):
-        linkedlist.search(linkedlist, 'Portugal')
+        linkedlist.search(linkedlist, three)
 
 
 def test_delete():
@@ -65,6 +66,18 @@ def test_delete():
     assert linkedlist.head.nextNode == one
 
 
+def test_delete_head():
+    linkedlist = linkedList()
+    one = Node('Jacob')
+    two = Node('Pallymay')
+    three = Node("Fawcet")
+    linkedlist.insert(one)
+    linkedlist.insert(two)
+    linkedlist.insert(three)
+    linkedlist.delete(three)
+    assert linkedlist.head == two
+
+
 def test_delete_empty():
     linkedlist = linkedList()
     one = Node('Pork')
@@ -72,7 +85,7 @@ def test_delete_empty():
         linkedlist.delete(one)
 
 
-def test_delete_when_second_no_item():
+def test_delete_item_not_in_list():
     linkedlist = linkedList()
     one = Node("Peanut")
     two = Node("Butter")
