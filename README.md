@@ -1,4 +1,2 @@
-algorithms
-==========
-
-Algorithms implemented in Python
+# Data structures and algorithms
+Fundamental data structures implemented in Python
