@@ -1,14 +1,23 @@
-import pytest
-from binary_search import bSearch
+from binary_search import binary_search
+import unittest
 
+class TestBinarySearch(unittest.TestCase):
+    def setUp(self):
+        self.list = [i for i in range(10000)]
+        self.high = len(self.list) - 1
+        self.low = 0
 
-def test_list_containg_e():
-    list1 = [i for i in xrange(100)]
-    found = bSearch(list1, 10)
-    assert found is True
+    def test_for_element_in_list(self):
+        found = binary_search(self.list, 69, self.low, self.high)
+        self.assertTrue(found)
 
+    def test_for_element_not_in_list(self):
+        found = binary_search(self.list, 100001, self.low, self.high)
+        self.assertFalse(found)
 
-def test_list_without_e():
-    list1 = [i for i in xrange(50, 100)]
-    found = bSearch(list1, 10)
-    assert found is False
+    def test_list_of_one_element(self):
+        found = binary_search(self.list, 100001, 0, 1)
+        self.assertFalse(found)
+
+if __name__ == '__main__':
+    unittest.main()

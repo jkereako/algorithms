@@ -1,48 +1,23 @@
-# def bSearch(L, e):
-#     """
-#     Assumes L is a list, the elements of which are in ascending order.
-#     Returns True if e is in L and False othewrise
-#     """
-
-#     mid = L[-1] // 2
-#     high = L[-1]
-#     low = L[0]
-#     found = False
-#     while not found:
-#         if mid == e:
-#             found = True
-#         elif mid == low or mid == high:
-#             break
-#         elif e > mid:
-#             low = mid
-#         else:
-#             high = mid
-#         mid = (low + high) // 2
-
-#     return found
-
-
-def bSearch(L, e):
+def binary_search(list, element, low, high):
     """
-    Assumes  L is a list, the elemnts of which are in ascended order
-    Returns true if e is in L, and false otherwise
+    Chop a list in half, inspect it.
     """
 
-    def binarySearch(L, e, low, high):
-        if low == high:
-            return L[low] == e
-        mid = (low + high) // 2
-        if L[mid] == e:
-            return True
-        if L[mid] > e:
-            if low == mid:
-                return False
-            else:
-                return binarySearch(L, e, low, mid-1)
-        else:
-            return binarySearch(L, e, mid+1, high)
+    # Account for cases in which the list is 0 or 1 element
+    if high - low < 2:
+        return list[low] == element or list[high] == element
 
-    if len(L) == 0:
-        return False
-    else:
-        return binarySearch(L, e, 0, len(L) - 1)
+    # Find the middle element
+    mid = low + (high - low) // 2
+
+    # We found the element
+    if list[mid] == element:
+        return True
+
+    # If the middle element is greater than the subject, then search the lower
+    # half of the list.
+    if list[mid] > element:
+        return binary_search(list, element, low, mid - 1)
+
+    # Otherwise, search the upper half
+    return binary_search(list, element, mid + 1, high)
