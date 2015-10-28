@@ -34,14 +34,16 @@ class LinkedList(object):
 
     def search(self, data):
         current = self.head
-        found = False
-        while current and found is False:
+
+        while current:
             if current.get_data() == data:
-                found = True
-            else:
-                current = current.get_next()
-        if current is None:
+                break
+
+            current = current.get_next()
+
+        if not current:
             raise ValueError("Data not in list")
+
         return current
 
     def delete(self, data):
