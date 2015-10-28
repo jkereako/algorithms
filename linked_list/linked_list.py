@@ -49,17 +49,22 @@ class LinkedList(object):
     def delete(self, data):
         current = self.head
         previous = None
-        found = False
-        while current and found is False:
+
+        while current:
             if current.get_data() == data:
-                found = True
-            else:
-                previous = current
-                current = current.get_next()
+                break
+
+            previous = current
+            current = current.get_next()
+
         if current is None:
             raise ValueError("Data not in list")
+
+        # `previous` is `None` if the head of the list is the node we're looking
+        # for.
         if previous is None:
             self.head = current.get_next()
+
         else:
             previous.set_next(current.get_next())
 

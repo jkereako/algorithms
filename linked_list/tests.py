@@ -69,8 +69,12 @@ class TestLinkedList(unittest.TestCase):
         self.list.insert("Jacob")
         self.list.insert("Pallymay")
         self.list.insert("Rasmus")
+
+        # Delete the list head
         self.list.delete("Rasmus")
         self.assertTrue(self.list.head.get_data() == "Pallymay")
+
+        # Delete the list tail
         self.list.delete("Jacob")
         self.assertTrue(self.list.head.get_next() is None)
 
