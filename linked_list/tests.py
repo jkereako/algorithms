@@ -117,7 +117,11 @@ class TestLinkedList(unittest.TestCase):
         illyrio = self.list.insert("Illyrio")
         self.list.insert("Viserys")
         self.list.insert("Rhaegar")
+        
+        # First, test for no cycle
+        self.assertFalse(self.list.has_cycle())
 
+        # Create a cycle
         daenerys.set_next(illyrio)
         
         # Below is a diagram showing the relationship of the objects and the
@@ -125,7 +129,9 @@ class TestLinkedList(unittest.TestCase):
         #
         # Daenarys <-- Drogo <-- Illyrio <-- Viserys <-- Rhaegar [HEAD]
         #    L--------------------^
-        self.assertTrue(self.list.has_cycle() == True)
+
+        # Test for a cycle
+        self.assertTrue(self.list.has_cycle())
 
 if __name__ == '__main__':
     unittest.main()
