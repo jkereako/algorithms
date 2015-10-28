@@ -1,4 +1,10 @@
 def sort(L):
+    """
+    Insertion sort is a O(n^2) algorithm in the worst case which is when the
+    array to be sorted is in reverse order. However, the space complexity of
+    this algorithm is O(1) because the only auxiliary space required to perform
+    an insertion sort is the temporary variable `val`.
+    """
     # Start from the second element so we can compare the current element with
     # the previous element.
     for i in range(1, len(L)):
