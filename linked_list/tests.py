@@ -50,7 +50,6 @@ class TestLinkedList(unittest.TestCase):
         found = self.list.search("Jacob")
         self.assertTrue(found.get_data() == "Jacob")
 
-
     def test_searchNone(self):
         self.list.insert("Jacob")
         self.list.insert("Pallymay")
@@ -66,7 +65,9 @@ class TestLinkedList(unittest.TestCase):
     def test_middle(self):
         self.list.insert("Cersei")
         self.list.insert("Jaime")
+
         tyrion = self.list.insert("Tyrion")
+
         self.list.insert("Tywin")
         self.list.insert("Joanna")
 
@@ -109,6 +110,22 @@ class TestLinkedList(unittest.TestCase):
         self.list.delete("Cid")
 
         self.assertTrue(self.list.head.next_node.get_data() == "Jacob")
+    
+    def test_cycle_detection(self):
+        daenerys = self.list.insert("Daenerys")
+        self.list.insert("Drogo")
+        illyrio = self.list.insert("Illyrio")
+        self.list.insert("Viserys")
+        self.list.insert("Rhaegar")
+
+        daenerys.set_next(illyrio)
+        
+        # Below is a diagram showing the relationship of the objects and the
+        # cycle.
+        #
+        # Daenarys <-- Drogo <-- Illyrio <-- Viserys <-- Rhaegar [HEAD]
+        #    L--------------------^
+        self.assertTrue(self.list.has_cycle() == True)
 
 if __name__ == '__main__':
     unittest.main()

@@ -23,6 +23,8 @@ class LinkedList(object):
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
+        
+        return new_node
 
     def size(self):
         current = self.head
@@ -69,23 +71,22 @@ class LinkedList(object):
             previous.set_next(current.get_next())
 
     def middle(self):
-        tortoise = None
-        hare = None
+        tortoise = self.head
+        hare = self.head
 
-        while tortoise and hare and hare.get_next():
-            hare = tortoise.get_next().get_next()
+        while hare and hare.get_next():
+            hare = hare.get_next().get_next()
             tortoise = tortoise.get_next()
-        
+
         return tortoise
 
-
     def has_cycle(self):
-        tortoise = None
-        hare = None
+        tortoise = self.head
+        hare = self.head
 
         # Advance the list 
         while tortoise and hare and hare.get_next():
-            hare = tortoise.get_next().get_next()
+            hare = hare.get_next().get_next()
             tortoise = tortoise.get_next()
 
             if tortoise == hare:
