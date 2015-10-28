@@ -61,6 +61,17 @@ class LinkedList(object):
         else:
             previous.set_next(current.get_next())
 
+    def middle(self):
+        tortoise = None
+        hare = None
+
+        while tortoise and hare and hare.get_next():
+            hare = tortoise.get_next().get_next()
+            tortoise = tortoise.get_next()
+        
+        return tortoise
+
+
     def has_cycle(self):
         tortoise = None
         hare = None

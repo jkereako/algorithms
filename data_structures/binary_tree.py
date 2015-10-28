@@ -14,7 +14,7 @@ class BinaryTree:
         return self.right
 
     def set_node_data(self, data):
-        self.rootid = data
+        self.data = data
 
     def node_data(self):
         return self.data

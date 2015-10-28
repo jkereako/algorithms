@@ -54,6 +54,16 @@ class TestLinkedList(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.list.search("Vincent")
 
+    def test_middle(self):
+        self.list.insert("Cersei")
+        self.list.insert("Jaime")
+        tyrion = self.list.insert("Tyrion")
+        self.list.insert("Tywin")
+        self.list.insert("Joanna")
+
+        middle = self.list.middle()
+
+        self.assertTrue(middle == tyrion)
 
     def test_delete(self):
         self.list.insert("Jacob")
