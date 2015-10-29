@@ -1,4 +1,5 @@
-from binary_tree import BinaryTree
+import data_structures
+from data_structures import binary_tree
 import unittest
 
 class TestBinaryTree(unittest.TestCase):
