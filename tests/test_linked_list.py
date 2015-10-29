@@ -4,7 +4,7 @@ import unittest
 
 class TestLinkedList(unittest.TestCase):
     def setUp(self):
-        self.list = LinkedList()
+        self.list = linked_list.LinkedList()
 
     def tearDown(self):
         self.list = None

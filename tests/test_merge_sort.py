@@ -1,4 +1,4 @@
-from merge_sort import merge, sort
+from algorithms import merge_sort
 import unittest
 
 class TestMergeSort(unittest.TestCase):
@@ -7,6 +7,6 @@ class TestMergeSort(unittest.TestCase):
         self.expected = [1, 2, 3, 3, 4, 6, 9, 13, 19, 21, 39, 64, 290, 343]
 
     def test_sort(self):
-        result = sort(self.list)
+        result = merge_sort.sort(self.list)
         self.assertTrue(result == self.expected)
 

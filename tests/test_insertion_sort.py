@@ -1,4 +1,4 @@
-from insertion_sort import sort
+from algorithms import insertion_sort
 import unittest
 
 class TestInsertionSort(unittest.TestCase):
@@ -7,6 +7,6 @@ class TestInsertionSort(unittest.TestCase):
         self.expected = [1, 2, 3, 3, 4, 6, 9, 13, 19, 21, 39, 64, 290, 343]
 
     def test_sort(self):
-        result = sort(self.list)
+        result = insertion_sort.sort(self.list)
         self.assertTrue(result == self.expected)
 

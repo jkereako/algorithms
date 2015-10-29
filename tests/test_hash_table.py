@@ -1,10 +1,10 @@
 import data_structures
-from data_structures import HashTable
+from data_structures import hash_table
 import unittest
 
 class TestHashTable(unittest.TestCase):
     def setUp(self):
-        self.hashTable = HashTable(4)
+        self.hashTable = hash_table.HashTable(4)
 
     def tearDown(self):
         self.hashTable = None

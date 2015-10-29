@@ -1,4 +1,4 @@
-from selection_sort import sort
+from algorithms import selection_sort
 import unittest
 
 class TestSelectionSort(unittest.TestCase):
@@ -7,7 +7,6 @@ class TestSelectionSort(unittest.TestCase):
         self.expected = [1, 2, 3, 3, 4, 6, 9, 13, 19, 21, 39, 64, 290, 343]
 
     def test_sort(self):
-        result = sort(self.list)
-        print(result)
+        result = selection_sort.sort(self.list)
         self.assertTrue(result == self.expected)
 
