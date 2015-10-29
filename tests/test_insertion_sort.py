@@ -10,5 +10,3 @@ class TestInsertionSort(unittest.TestCase):
         result = sort(self.list)
         self.assertTrue(result == self.expected)
 
-if __name__ == '__main__':
-    unittest.main()

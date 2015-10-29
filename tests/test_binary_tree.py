@@ -17,5 +17,3 @@ class TestBinaryTree(unittest.TestCase):
 
         BinaryTree.inorder_traversal(self.tree, func)
 
-if __name__ == '__main__':
-    unittest.main()
