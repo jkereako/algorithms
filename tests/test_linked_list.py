@@ -1,4 +1,5 @@
-from linked_list import Node, LinkedList
+import data_structures
+from data_structures import linked_list
 import unittest
 
 class TestLinkedList(unittest.TestCase):
@@ -133,5 +134,3 @@ class TestLinkedList(unittest.TestCase):
         # Test for a cycle
         self.assertTrue(self.list.has_cycle())
 
-if __name__ == '__main__':
-    unittest.main()

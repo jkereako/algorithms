@@ -1,4 +1,5 @@
-from hash_table import HashTable
+import data_structures
+from data_structures import HashTable
 import unittest
 
 class TestHashTable(unittest.TestCase):
@@ -24,5 +25,3 @@ class TestHashTable(unittest.TestCase):
         self.hashTable .insert('abc')
         self.assertTrue(self.hashTable.table[2] == ['abc'])
 
-if __name__ == '__main__':
-    unittest.main()
