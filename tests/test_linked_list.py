@@ -134,3 +134,16 @@ class TestLinkedList(unittest.TestCase):
         # Test for a cycle
         self.assertTrue(self.list.has_cycle())
 
+    def test_delete_duplicates(self):
+        self.list.insert("Ingles")
+        self.list.insert("Pablo")
+        self.list.insert("Maria")
+        self.list.insert("Pilar")
+        self.list.insert("Pablo")
+        self.list.insert("Pilar")
+        self.list.insert("Pablo")
+        self.list.insert("Pablo")
+
+        self.list.delete_duplicates()
+
+        print(self.list)

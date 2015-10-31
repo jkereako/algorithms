@@ -93,7 +93,30 @@ class LinkedList(object):
                 return True
 
         return False
-    
+
+    def delete_duplicates(self):
+        """
+        In order to properly delete duplicates from a linked list, you must
+        advance the list in normal fashion and then compare the current node
+        with all previous nodes.
+        """
+        current = self.head
+        previous = None
+
+        while current:
+            runner = self.head
+            # Iterate from the front of the list to the current pointer
+            while runner and runner != current:
+                if current.get_data() == runner.get_data():
+                    previous.set_next(current.get_next())
+                    current = previous
+                    break
+
+                runner = runner.get_next()
+
+            previous = current
+            current = current.get_next()
+
     def __str__(self):
         current = self.head
         string = ''
