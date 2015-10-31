@@ -146,4 +146,16 @@ class TestLinkedList(unittest.TestCase):
 
         self.list.delete_duplicates()
 
+    def test_reverse(self):
+        self.list.insert("Un")
+        self.list.insert("Deux")
+        self.list.insert("Trois")
+        #self.list.insert("Qautre")
+        self.list.insert("Cinq")
+        self.list.insert("Six")
+        self.list.insert("Sept")
+
+        print(self.list)
+        self.list.reverse()
+
         print(self.list)

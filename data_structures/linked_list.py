@@ -117,6 +117,41 @@ class LinkedList(object):
             previous = current
             current = current.get_next()
 
+    def reverse(self):
+        """
+        Reverses a string without a stack. The running time of this algorithm is
+        O(n) because we're iterating from the head to the middle and the middle
+        to the tail.
+        """
+        middle = self.middle()
+        size = self.size()
+        middle_index = size // 2
+        current = self.head
+
+        # Iterate from the head to the middle of the list
+        i = 0
+        while i != middle_index and current:
+            # On the first iteration, `k` is the index of the tail. Then, on the
+            # next iteration, `k` is the index of the tail - 1 and so on.
+            k = ((size - middle_index) - i) - 1
+            j = 0
+
+            # Always reset the tail to the middle node
+            tail = middle
+
+            # Iterate from the middle to the tail of the list
+            while j < k and tail:
+                tail = tail.get_next()
+                j += 1
+
+            # Swap the data only, it isn't necessary to swap the pointers.
+            temp = current.data
+            current.data = tail.data
+            tail.data = temp
+
+            current = current.get_next()
+            i += 1
+
     def __str__(self):
         current = self.head
         string = ''
