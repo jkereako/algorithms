@@ -31,3 +31,4 @@ def merge(left, right, lt):
         result.append(right[j])
         j += 1
     return result
+
