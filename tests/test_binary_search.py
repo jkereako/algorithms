@@ -18,6 +18,12 @@ class TestBinarySearch(unittest.TestCase):
 
         self.assertFalse(found)
 
+    def test_list_of_odd_number_of_elements(self):
+        self.list = [i for i in range(10001)]
+        found = binary_search.binary_search(self.list, 500)
+
+        self.assertTrue(found)
+
     def test_list_of_one_element(self):
         self.list = [1]
         found = binary_search.binary_search(self.list, 1)
