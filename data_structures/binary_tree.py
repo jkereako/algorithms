@@ -34,8 +34,13 @@ class BinaryTree:
             tree = BinaryTree(data)
             tree.left = self.left
             self.left = tree
+    
+    def height(self, tree):
+        if not tree.data:
+            return 0
 
-    @classmethod
+        return 1 + max(height(tree.left), height(tree.right))
+
     def preorder_traversal(self, tree, func):
         if not tree:
             return
@@ -44,7 +49,6 @@ class BinaryTree:
         self.preorder_traversal(tree.left, func)
         self.preorder_traversal(tree.right, func)
 
-    @classmethod
     def inorder_traversal(self, tree, func):
         if not tree:
             return
@@ -53,7 +57,6 @@ class BinaryTree:
         func(tree)
         self.inorder_traversal(tree.right, func)
 
-    @classmethod
     def postorder_traversal(self, tree, func):
         if not tree:
             return
@@ -61,3 +64,4 @@ class BinaryTree:
         self.postorder_traversal(tree.left, func)
         self.postorder_traversal(tree.right, func)
         func(tree)
+
