@@ -9,6 +9,7 @@ class Vertex(object):
     def __str__(self):
         return str(self.key) + "connected to: " + str([x.key for x in
             self.relationships])
+
 class Graph(object):
     def __init__(self):
         self.vertices = {}
