@@ -1,4 +1,6 @@
+import algorithms
 import data_structures
+from algorithms import binary_tree_operations
 from data_structures import binary_tree
 import unittest
 

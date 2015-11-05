@@ -9,6 +9,8 @@ def search(G, source, destination):
     Each iteration of the while loop pops off the most recently added path. If
     that path is a dead-destination, then the loop continues which effectively discards
     the dead-destination path.
+
+    see: http://stackoverflow.com/questions/8922060/how-to-trace-the-path-in-a-breadth-first-search#8922151
     """
     queue = []
     # Initialize the queue to the source vertex
