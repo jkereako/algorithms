@@ -23,7 +23,7 @@ class LinkedList(object):
         new_node = Node(data)
         new_node.set_next(self.head)
         self.head = new_node
-        
+
         return new_node
 
     def size(self):

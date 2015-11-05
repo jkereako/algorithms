@@ -1,37 +1,25 @@
 class BinaryTree:
-    def __init__(self, data):
+    def __init__(self, root):
       self.left = None
       self.right = None
-      self.data = data
+      self.root = root
 
-    def __str__(self):
-        return str(self.data)
-
-    def left_child(self):
-        return self.left
-
-    def right_child(self):
-        return self.right
-
-    def set_node_data(self, data):
-        self.data = data
-
-    def node_data(self):
-        return self.data
-
-    def insert_right_child(self, data):
+    def insert_right_child(self, root):
         if not self.right:
-            self.right = BinaryTree(data)
+            self.right = BinaryTree(root)
         else:
-            tree = BinaryTree(data)
+            tree = BinaryTree(root)
             tree.right = self.right
             self.right = tree
 
-    def insert_left_child(self, data):
+    def insert_left_child(self, root):
         if not self.left:
-            self.left = BinaryTree(data)
+            self.left = BinaryTree(root)
         else:
-            tree = BinaryTree(data)
+            tree = BinaryTree(root)
             tree.left = self.left
             self.left = tree
+
+    def __str__(self):
+        return str(self.root)
 
