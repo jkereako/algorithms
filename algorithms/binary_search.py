@@ -1,6 +1,17 @@
 def binary_search(L, key):
     """
-    Chop a L in half, inspect it.
+    Binary search, or half-interval search, finds the position of a target value
+    within a sorted array.
+
+    Performance
+    ===========
+    Worst:      O(log n)
+    Average:    O(log n)
+    Best:       O(1)
+
+    Space
+    =====
+    Worst:      O(1)
     """
 
     # The list is empty, hence, the key does not exist.
