@@ -155,7 +155,8 @@ class TestLinkedList(unittest.TestCase):
         self.list.insert("Six")
         self.list.insert("Sept")
 
-        print(self.list)
+        #print(self.list)
         self.list.reverse()
 
-        print(self.list)
+        #print(self.list)
+

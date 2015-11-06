@@ -1,5 +1,4 @@
 class BinaryTreeOperation(object):
-
     def height(self, T):
         if not T:
             return 0
@@ -41,9 +40,18 @@ class BinaryTreeOperation(object):
 
     def invert(self, T):
         if not T:
-            return
+            return T
 
         temp = T.left
         T.left = invert(T.right)
         T.right = invert(temp)
+
+    def print_tree(self, T, indent=0):
+        if not T:
+            return
+
+        print('  ' * indent + T.root)
+
+        self.print_tree(T.left, indent + 1)
+        self.print_tree(T.right, indent + 1)
 

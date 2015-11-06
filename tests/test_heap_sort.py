@@ -10,6 +10,6 @@ class TestInsertionSort(unittest.TestCase):
     def test_sort(self):
         thing = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
         heapq.heapify(thing)
-        print(thing)
+        #print(thing)
         result = heap_sort.sort([1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2])
         self.assertTrue(result == self.expected)
