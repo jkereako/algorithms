@@ -1,17 +1,29 @@
 def search(G, source, destination):
     """
-    This function explores all possible paths between `source` and `destination`. The
-    queue, which is actually a stack, maintains all of the possible paths. The
-    queue is initialized to vertex `source` and vertices adjacent to `source`
-    are explored. Each path leading to the adjacent vertex is appdestinationed on to the
-    queue.
+    Breadth-first search (BFS) is a tree or graph search algorithm which
+    explores neighbor nodes before moving on to the next level neighbors.
+
+    In this particular implementation, This function explores all possible paths
+    between `source` and `destination`. The queue, which is actually a stack,
+    maintains all of the possible paths. The queue is initialized to vertex
+    `source` and vertices adjacent to `source` are explored. Each path leading
+    to the adjacent vertex is appdestinationed on to the queue.
 
     Each iteration of the while loop pops off the most recently added path. If
-    that path is a dead-destination, then the loop continues which effectively discards
-    the dead-destination path.
+    that path is a dead-destination, then the loop continues which effectively
+    discards the dead-destination path.
 
     see: http://stackoverflow.com/questions/8922060/how-to-trace-the-path-in-a-breadth-first-search#8922151
+
+    Performance
+    ==========
+    Worst:      O(|E|)
+
+    Space
+    =====
+    Worst:      O(|V|)
     """
+
     queue = []
     # Initialize the queue to the source vertex
     queue.append([source])
@@ -44,3 +56,4 @@ def search(G, source, destination):
 
     # Path not found
     return None
+
