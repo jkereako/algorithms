@@ -1,11 +1,21 @@
 class BinaryTreeOperation(object):
-    def height(T):
-        if not T.root:
+
+    def height(self, T):
+        if not T:
             return 0
 
-        return 1 + max(height(T.left), height(T.right))
+        return 1 + max(self.height(T.left), self.height(T.right))
 
-    def preorder(T, func):
+    def is_balanced(self, T):
+        if not T:
+            return True
+
+        balanced = self.is_balanced(T.left) and self.is_balanced(T.right)
+        height_difference = abs(self.height(T.left) - self.height(T.right))
+
+        return balanced and height_difference <= 1
+
+    def preorder(self, T, func):
         if not T:
             return
 
@@ -13,23 +23,23 @@ class BinaryTreeOperation(object):
         preorder(T.left)
         preorder(T.right)
 
-    def inorder(T, func):
+    def inorder(self, T, func):
+        if not T:
+            return
+
+        preorder(self, T.left)
+        func(T)
+        preorder(T.right)
+
+    def postorder(self, T, func):
         if not T:
             return
 
         preorder(T.left)
-        func(T)
-        preorder(T.right)
-
-    def postorder(T, func):
-        if not T:
-            return
-
-        preorder(T.left)
         preorder(T.right)
         func(T)
 
-    def invert(T):
+    def invert(self, T):
         if not T:
             return
 
