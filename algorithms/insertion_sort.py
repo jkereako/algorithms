@@ -1,11 +1,23 @@
 def sort(L):
     """
-    Insertion sort is a O(n^2) algorithm in the worst case which is when the
-    array to be sorted is in reverse order. However, the space complexity of
-    this algorithm is O(1) because the only auxiliary space required to perform
-    an insertion sort is the temporary variable `val`. In other words, insertion
-    sort is done "in place".
+    Insertion sort is a simple algorithm which builds the final sorted list 1
+    item at a time.
+
+    It compares the current element with it's neighbor to the left. If the
+    current element is smaller than the neighbor, it then compares with the
+    neighbor before that and so on until the beginning of the list is reached.
+
+    Performance
+    ===========
+    Worst:      O(n^2)
+    Average:    O(n^2)
+    Best:       O(n)
+
+    Space
+    =====
+    Worst:      O(1)
     """
+
     # Start from the second element so we can compare the current element with
     # the previous element.
     for i in range(1, len(L)):
