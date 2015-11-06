@@ -7,6 +7,6 @@ class TestSelectionSort(unittest.TestCase):
         self.expected = [1, 2, 3, 3, 4, 6, 9, 13, 19, 21, 39, 64, 290, 343]
 
     def test_sort(self):
-        result = selection_sort.sort(self.list)
-        self.assertTrue(result == self.expected)
+        selection_sort.sort(self.list)
+        self.assertTrue(self.list == self.expected)
 

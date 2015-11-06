@@ -26,6 +26,6 @@ def sort(L):
             j += 1
 
         temp = L[i]
-        L[i] = list[min_idx]
+        L[i] = L[min_idx]
         L[min_idx] = temp
 
