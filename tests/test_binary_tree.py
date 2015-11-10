@@ -16,8 +16,8 @@ class TestBinaryTree(unittest.TestCase):
     def tearDown(self):
         self.tree = None
 
-    def test_tree_height(self):
-        result = self.operations.height(self.tree)
+    def test_max_depth(self):
+        result = self.operations.max_depth(self.tree)
         self.assertTrue(result == 3)
 
     def test_tree_is_balanced(self):
@@ -26,6 +26,7 @@ class TestBinaryTree(unittest.TestCase):
 
     def test_tree_is_not_balanced(self):
         self.tree.insert_left_child('Robert I')
+        self.tree.insert_left_child('Robert II')
 
         result = self.operations.is_balanced(self.tree)
         self.assertFalse(result)

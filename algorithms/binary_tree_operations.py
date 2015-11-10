@@ -1,18 +1,22 @@
 class BinaryTreeOperation(object):
-    def height(self, T):
+    def min_depth(self, T):
         if not T:
             return 0
 
-        return 1 + max(self.height(T.left), self.height(T.right))
+        return 1 + min(self.max_depth(T.left), self.max_depth(T.right))
+
+    def max_depth(self, T):
+        if not T:
+            return 0
+
+        return 1 + max(self.max_depth(T.left), self.max_depth(T.right))
 
     def is_balanced(self, T):
-        if not T:
-            return True
-
-        balanced = self.is_balanced(T.left) and self.is_balanced(T.right)
-        height_difference = abs(self.height(T.left) - self.height(T.right))
-
-        return balanced and height_difference <= 1
+        """
+        A tree is considered balanced if it the difference between the maximum
+        depth and the minimum depth is less than or equal to 1.
+        """
+        return self.max_depth(T) - self.min_depth(T) <= 1
 
     def preorder(self, T, func):
         if not T:
