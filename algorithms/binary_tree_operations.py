@@ -23,23 +23,23 @@ class BinaryTreeOperation(object):
             return
 
         func(T)
-        preorder(T.left)
-        preorder(T.right)
+        self.preorder(T.left)
+        self.preorder(T.right)
 
     def inorder(self, T, func):
         if not T:
             return
 
-        preorder(self, T.left)
+        self.inorder(self, T.left)
         func(T)
-        preorder(T.right)
+        self.inorder(T.right)
 
     def postorder(self, T, func):
         if not T:
             return
 
-        preorder(T.left)
-        preorder(T.right)
+        self.postorder(T.left)
+        self.postorder(T.right)
         func(T)
 
     def invert(self, T):
