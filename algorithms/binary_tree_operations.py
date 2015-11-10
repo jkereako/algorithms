@@ -43,12 +43,19 @@ class BinaryTreeOperation(object):
         func(T)
 
     def invert(self, T):
+        """
+        This sounds harder than it actually is. Recurse through the tree and
+        apply a regular swap routine to the right and left nodes.
+        """
         if not T:
-            return T
+            return
 
         temp = T.left
         T.left = invert(T.right)
         T.right = invert(temp)
+
+        # The tree *must* be returned.
+        return T
 
     def print_tree(self, T, indent=0):
         if not T:
