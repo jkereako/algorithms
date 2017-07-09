@@ -18,6 +18,19 @@ class BinaryTreeOperation(object):
         """
         return self.max_depth(T) - self.min_depth(T) <= 1
 
+    def is_mirror(self, left, right):
+        """
+        Tests if 2 subtrees are mirror images of one another.
+        """
+        # If we've reached a leaf in a subtree, then verify that the
+        # corresponding subtree is also a leaf
+        if left is None or right is None:
+            return left == None and right == None
+
+        # Check if the root nodes are equal and if the mirrored nodes are also
+        # equal
+        return left.root == right.root and is_mirror(left.left, right.right) and is_mirror(left.right, right.left)
+
     def preorder(self, T, func):
         if not T:
             return
@@ -65,4 +78,3 @@ class BinaryTreeOperation(object):
 
         self.print_tree(T.left, indent + 1)
         self.print_tree(T.right, indent + 1)
-

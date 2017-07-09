@@ -22,4 +22,3 @@ class BinaryTree:
 
     def __str__(self):
         return str(self.root)
-
