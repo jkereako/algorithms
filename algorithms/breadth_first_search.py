@@ -1,59 +1,44 @@
-def search(G, source, destination):
-    """
-    Breadth-first search (BFS) is a tree or graph search algorithm which
-    explores neighbor nodes before moving on to the next level neighbors.
+def connected_components(G, source):
+  visited = []
+  queue = [source]
 
-    In this particular implementation, This function explores all possible paths
-    between `source` and `destination`. The queue, which is actually a stack,
-    maintains all of the possible paths. The queue is initialized to vertex
-    `source` and vertices adjacent to `source` are explored. Each path leading
-    to the adjacent vertex is appdestinationed on to the queue.
+  while queue:
+    # Visit oldest vertex first
+    vertex = queue.pop(0)
 
-    Each iteration of the while loop pops off the most recently added path. If
-    that path is a dead-destination, then the loop continues which effectively
-    discards the dead-destination path.
+    if vertex not in visited:
+      visited.append(vertex)
+      queue.extend(G[vertex])
 
-    see: http://stackoverflow.com/questions/8922060/how-to-trace-the-path-in-a-breadth-first-search#8922151
+  return visited
 
-    Performance
-    ==========
-    Worst:      O(|E|)
+def paths(G, source, destination):
+  queue = [source] # Visit oldest vertex first
+  source_paths = [[source]] # Keeps track of all paths originating from the source
+  valid_paths = [] # Valid paths from the source to the destination
 
-    Space
-    =====
-    Worst:      O(|V|)
-    """
+  while queue:
+    vertex = queue.pop(0)
+    visited = source_paths.pop(0)
+    
+    # DEBUG:
+    # print("Vertex: " + vertex)
+    # print("Adjacent edges: " + str(set(G[vertex])))
+    # print("Visited: " + str(set(visited)))
+    # print("Not visited: " + str(set(G[vertex]) - set(visited)) + "\n")
+    
+    # Visit adjacent vertices
+    for adjacent_vertex in G[vertex]:
+      if adjacent_vertex in visited:
+        continue
+      
+      path = visited + [adjacent_vertex]
+      
+      if adjacent_vertex == destination:
+        valid_paths.append(path)
 
-    queue = []
-    # Initialize the queue to the source vertex
-    queue.append([source])
-
-    # Iteration will continue until `queue` becomes an empty list
-    while queue:
-        path = queue.pop()
-        # Get the last vertex on the path
-        vertex = path[-1]
-
-        # We found a path. It may not be the shortest path, but it's probably
-        # close.
-        if vertex == destination:
-            return path
-
-        # Uncomment to print the path so far. This will help visualize how BFS
-        # works
-        #print(path)
-
-        # The loop below iterates over each vertex adjacent to `vertex`.
-        # `get` says: "if `vertex` doesn't exist in `G`, then return an empty
-        # list"
-        for adjacent in G.get(vertex, []):
-            # Copy the list `path` and appdestination it to the queue
-            new_path = list(path)
-            # Add the adjacent vertex
-            new_path.append(adjacent)
-
-            queue.append(new_path)
-
-    # Path not found
-    return None
-
+      else:
+        source_paths.append(path)
+        queue.append(adjacent_vertex)
+  
+  return valid_paths

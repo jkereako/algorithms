@@ -48,11 +48,11 @@ class BinaryTreeOperation(object):
         apply a regular swap routine to the right and left nodes.
         """
         if not T:
-            return
+            return None
 
         temp = T.left
-        T.left = invert(T.right)
-        T.right = invert(temp)
+        T.left = self.invert(T.right)
+        T.right = self.invert(temp)
 
         # The tree *must* be returned.
         return T

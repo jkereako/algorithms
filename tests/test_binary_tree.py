@@ -33,8 +33,6 @@ class TestBinaryTree(unittest.TestCase):
 
     def test_tree_inversion(self):
         self.operations.print_tree(self.tree)
-        print("      Inverting...")
         tree = self.operations.invert(self.tree)
         self.operations.print_tree(tree)
-      #  print(self.tree)
 
