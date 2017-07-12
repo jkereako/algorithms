@@ -11,6 +11,21 @@ def fibonacci(n):
 
     return fib[n]
 
+def fibonacci_1(n):
+    """
+    This is the fastest and most efficient solution for finding the nth
+    Fibonacci number
+    """
+    a = 0
+    b = 1
+
+    for i in range(0, n):
+        temp = a
+        a = b
+        b = temp + b
+
+    return a
+
 def gcd(a, b):
     """Greatest common divisor"""
     if a % b:
