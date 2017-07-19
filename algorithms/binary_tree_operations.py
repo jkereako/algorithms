@@ -2,6 +2,12 @@ class BinaryTreeOperation(object):
     def min_depth(self, T):
         if not T:
             return 0
+        
+        if not T.left:
+            return 1 + min_depth(T.right)
+        
+        if not T.right:
+            return 1 + min_depth(T.left)
 
         return 1 + min(self.max_depth(T.left), self.max_depth(T.right))
 
